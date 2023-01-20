@@ -7,7 +7,7 @@ const Feed=()=>{
     const [selectedCategory, setSelectedCategory] = useState('New')
     const [videos, setVideos] = useState([]);
     useEffect(() => {
-      fetchFromAPI(`search?part=snippet&q=${selectedCategory}`).then((data)=>{setVideos(data.items);console.log(data)})}
+      fetchFromAPI(`search?part=snippet&q=${selectedCategory}`).then((data)=>{setVideos(data.items)})}
       , [selectedCategory])
 
   return (
@@ -20,7 +20,6 @@ const Feed=()=>{
         <Typography variant="h4" mb={2} fontWeight="bold" sx={{color:'#FFF'}}>
            {selectedCategory} <span style={{color:'#F31501'}}>videos</span>
         </Typography>
-
         <Videos videos={videos} />
       </Box>
     </Stack>
